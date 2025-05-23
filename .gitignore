@@ -172,3 +172,8 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Development Environment
+*.venv
+.idea
+.dockerignore
