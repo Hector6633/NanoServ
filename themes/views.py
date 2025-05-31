@@ -29,6 +29,3 @@ def contact(request):
             messages.error(request, error_msg)
             return redirect('contact')
     return render(request, 'contact.html')
-
-def service(request):
-    return render(request, 'service.html')

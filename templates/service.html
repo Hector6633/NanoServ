@@ -178,7 +178,7 @@
                             </li>
                             <li class="nav-item me-lg-0 mb-4 mb-lg-0">
                                 <a class="py-3 px-5" data-bs-toggle="pill" href="#ServiceTab-3">
-                                    <span>Indoor Works</span>
+                                <span>Cleaning</span>
                                 </a>
                             </li>
                         </ul>
@@ -187,31 +187,37 @@
                         <div class="tab-content">
                             <div id="ServiceTab-1" class="tab-pane fade show p-0 active">
                                 <div class="service-carousel owl-carousel">
+                                    {% for data in elec_data %}
                                     <div class="service-item">
-                                        <img src="{% static "img/commercial-1.jpg" %}" class="img-fluid w-100" alt="">
+                                        <img src="{{data.service_img.url}}" class="img-fluid w-100" alt="">
                                         <div class="border border-top-0 p-4">
-                                            <h4 class="mb-3">Brite Spark Services</h4>
-                                            <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, beatae ex. Id esse autem ratione vero cupiditate tempora recusandae est!
+                                            <h4 class="mb-3">{{data.service_name}}</h4>
+                                            <h3 class="mb-3">{{data.service_price}}</h3>
+                                            <p class="mb-4"> {{data.service_desc}}
                                             </p>
-                                            <a class="btn btn-primary py-2 px-4" href="#">Read More</a>
+                                            <a class="btn btn-primary py-2 px-4" href="#">Book Service</a>
                                         </div>
                                     </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                             <div id="ServiceTab-2" class="tab-pane fade show p-0">
                                 <div class="service-carousel owl-carousel">
+                                    {% for data in plum_data %}
                                     <div class="service-item">
-                                        <img src="{% static "img/residential-1.jpg" %}" class="img-fluid w-100" alt="">
+                                        <img src="{{data.service_img.url}}" class="img-fluid w-100" alt="">
                                         <div class="border border-top-0 p-4">
-                                            <h4 class="mb-3">Electrical Services</h4>
-                                            <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, beatae ex. Id esse autem ratione vero cupiditate tempora recusandae est!
+                                            <h4 class="mb-3">{{data.service_name}}</h4>
+                                            <h3 class="mb-3">{{data.service_price}}</h3>
+                                            <p class="mb-4">{{data.service_desc}}
                                             </p>
                                             <a class="btn btn-primary py-2 px-4" href="#">Read More</a>
                                         </div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
-                            <div id="ServiceTab-3" class="tab-pane fade show p-0">
+                            {% comment %} <div id="ServiceTab-3" class="tab-pane fade show p-0">
                                 <div class="service-carousel owl-carousel">
                                     <div class="service-item">
                                         <img src="{% static "img/industrial-1.jpg" %}" class="img-fluid w-100" alt="">
@@ -223,7 +229,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> {% endcomment %}
                         </div>
                     </div>
                 </div>
