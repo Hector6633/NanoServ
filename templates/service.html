@@ -178,7 +178,7 @@
                             </li>
                             <li class="nav-item me-lg-0 mb-4 mb-lg-0">
                                 <a class="py-3 px-5" data-bs-toggle="pill" href="#ServiceTab-3">
-                                <span>Cleaning</span>
+                                <span>Smart TV</span>
                                 </a>
                             </li>
                         </ul>
@@ -187,13 +187,13 @@
                         <div class="tab-content">
                             <div id="ServiceTab-1" class="tab-pane fade show p-0 active">
                                 <div class="service-carousel owl-carousel">
-                                    {% for data in elec_data %}
+                                    {% for e_data in elec_data %}
                                     <div class="service-item">
-                                        <img src="{{data.service_img.url}}" class="img-fluid w-100" alt="">
+                                        <img src="{{e_data.service_img.url}}" class="img-fluid w-100" alt="">
                                         <div class="border border-top-0 p-4">
-                                            <h4 class="mb-3">{{data.service_name}}</h4>
-                                            <h3 class="mb-3">{{data.service_price}}</h3>
-                                            <p class="mb-4"> {{data.service_desc}}
+                                            <h4 class="mb-3">{{e_data.service_name}}</h4>
+                                            <h3 class="mb-3">₹ {{e_data.service_price}}</h3>
+                                            <p class="mb-4"> {{e_data.service_desc}}
                                             </p>
                                             <a class="btn btn-primary py-2 px-4" href="#">Book Service</a>
                                         </div>
@@ -203,33 +203,20 @@
                             </div>
                             <div id="ServiceTab-2" class="tab-pane fade show p-0">
                                 <div class="service-carousel owl-carousel">
-                                    {% for data in plum_data %}
+                                    {% for p_data in plum_data %}
                                     <div class="service-item">
-                                        <img src="{{data.service_img.url}}" class="img-fluid w-100" alt="">
+                                        <img src="{{p_data.service_img.url}}" class="img-fluid w-100" alt="">
                                         <div class="border border-top-0 p-4">
-                                            <h4 class="mb-3">{{data.service_name}}</h4>
-                                            <h3 class="mb-3">{{data.service_price}}</h3>
-                                            <p class="mb-4">{{data.service_desc}}
+                                            <h4 class="mb-3">{{p_data.service_name}}</h4>
+                                            <h3 class="mb-3">₹ {{p_data.service_price}}</h3>
+                                            <p class="mb-4">{{p_data.service_desc}}
                                             </p>
-                                            <a class="btn btn-primary py-2 px-4" href="#">Read More</a>
+                                            <a class="btn btn-primary py-2 px-4" href="#">Book Service</a>
                                         </div>
-                                        {% endfor %}
                                     </div>
+                                    {% endfor %}
                                 </div>
                             </div>
-                            {% comment %} <div id="ServiceTab-3" class="tab-pane fade show p-0">
-                                <div class="service-carousel owl-carousel">
-                                    <div class="service-item">
-                                        <img src="{% static "img/industrial-1.jpg" %}" class="img-fluid w-100" alt="">
-                                        <div class="border border-top-0 p-4">
-                                            <h4 class="mb-3">Factory Manufacture</h4>
-                                            <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, beatae ex. Id esse autem ratione vero cupiditate tempora recusandae est!
-                                            </p>
-                                            <a class="btn btn-primary py-2 px-4" href="#">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> {% endcomment %}
                         </div>
                     </div>
                 </div>
