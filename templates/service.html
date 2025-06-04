@@ -217,6 +217,22 @@
                                     {% endfor %}
                                 </div>
                             </div>
+                            <div id="ServiceTab-3" class="tab-pane fade show p-0">
+                                <div class="service-carousel owl-carousel">
+                                    {% for t_data in tv_data %}
+                                    <div class="service-item">
+                                        <img src="{{t_data.service_img.url}}" class="img-fluid w-100" alt="">
+                                        <div class="border border-top-0 p-4">
+                                            <h4 class="mb-3">{{t_data.service_name}}</h4>
+                                            <h3 class="mb-3">₹ {{t_data.service_price}}</h3>
+                                            <p class="mb-4">{{t_data.service_desc}}
+                                            </p>
+                                            <a class="btn btn-primary py-2 px-4" href="#">Book Service</a>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

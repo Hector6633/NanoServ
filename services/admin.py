@@ -3,3 +3,4 @@ from . models import *
 
 admin.site.register(Electricians)
 admin.site.register(Plumbers)
+admin.site.register(SmartTv)
