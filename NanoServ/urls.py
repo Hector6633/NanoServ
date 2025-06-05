@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from debug_toolbar.toolbar import debug_toolbar_urls
@@ -21,13 +22,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('schema-viewer/', include('schema_viewer.urls')),
-    path('account_manager/', include('account_manager.urls')),
-    path('', include('themes.urls')),
-    path('services/', include('services.urls')),
+    path("admin/", admin.site.urls),
+    path("schema-viewer/", include("schema_viewer.urls")),
+    path("account_manager/", include("account_manager.urls")),
+    path("", include("themes.urls")),
+    path("services/", include("services.urls")),
 ] + debug_toolbar_urls()
 
-# for development purpose 
+# for development purpose
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
