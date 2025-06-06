@@ -8,3 +8,9 @@ def service(request):
         'tv_data': SmartTv.objects.all(),
     }
     return render(request, 'service.html', service_data)
+
+def electric_service_booking(request, pk):
+    electric_service_data = {
+        'electric_data' : Electricians.objects.get(pk=pk),
+    }
+    return render(request, 'service_booking.html', electric_service_data)
