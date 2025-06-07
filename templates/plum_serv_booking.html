@@ -46,7 +46,7 @@
         <div class="container-fluid header-top">
             <div class="container d-flex align-items-center">
                 <div class="d-flex align-items-center h-100">
-                    <a href="{% url "index" %}" class="navbar-brand" style="height: 125px;">
+                    <a href="#" class="navbar-brand" style="height: 125px;">
                         <h1 class="text-primary mb-0"><i class="fas fa-bolt"></i> NanoServ</h1>
                         <!-- <img src="img/logo.png" alt="Logo"> -->
                     </a>
@@ -76,8 +76,8 @@
                                         <a href="#" class="dropdown-toggle text-white" data-bs-toggle="dropdown"><small class="text-body"><i class="fas fa-globe-europe text-primary me-2"></i> English</small></a>
                                         <div class="dropdown-menu">
                                             <a href="#" class="dropdown-item">English</a>
-                                            <a href="#" class="dropdown-item">Japan</a>
-                                            <a href="#" class="dropdown-item">Germany</a>
+                                            <a href="#" class="dropdown-item">Bangla</a>
+                                            <a href="#" class="dropdown-item">French</a>
                                             <a href="#" class="dropdown-item">Spanish</a>
                                             <a href="#" class="dropdown-item">Arabic</a>
                                         </div>
@@ -97,7 +97,7 @@
                             </button>
                             <div class="collapse navbar-collapse" id="navbarCollapse">
                                 <div class="navbar-nav mx-0 mx-lg-auto bg-white">
-                                    <a href="{% url "index" %}" class="nav-item nav-link active">Home</a>
+                                    <a href="{% url "index" %}" class="nav-item nav-link">Home</a>
                                     <a href="{% url "about_us" %}" class="nav-item nav-link">About</a>
                                     <a href="{% url "service" %}" class="nav-item nav-link">Service</a>
                                     <a href="{% url "blog" %}" class="nav-item nav-link">Blog</a>
@@ -111,7 +111,7 @@
                                             <a href="{% url "index" %}" class="dropdown-item">Profile</a>
                                         </div>
                                     </div>
-                                    <a href="{% url "contact" %}" class="nav-item nav-link">Contact</a>
+                                    <a href="{% url "contact" %}" class="nav-item nav-link active">Contact</a>
                                     <div class="nav-btn ps-3">
                                         <button class="btn-search btn btn-primary btn-md-square mt-2 mt-lg-0 mb-4 mb-lg-0 flex-shrink-0" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
                                         <a href="#" class="btn btn-primary py-2 px-4 ms-0 ms-lg-3"> Get Solution</a>
@@ -148,89 +148,108 @@
         <!-- Header Start -->
         <div class="container-fluid bg-breadcrumb">
             <div class="container text-center py-5" style="max-width: 900px;">
-                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Our Services</h4>   
+                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Plumbing Service Booking</h4>
             </div>
         </div>
         <!-- Header End -->
 
 
-        <!-- Services Start -->
-        <div class="container-fluid service py-5">
+        <!-- Contact Start -->
+        <div class="container-fluid contact bg-light py-5">
             <div class="container py-5">
-                <div class="d-flex flex-column mx-auto text-center mb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Our Services</h4>
-                    <h1 class="display-4 mb-4">The Best Service For You</h1>
-                    <p class="mb-0">We provide the best service and our mission is to transform the way home and commercial services are perceived and delivered. As a leading online home service platform in kerala, we aim to simplify lives and empower businesses by providing a comprehensive range of top-tier services, including electrical repairs, plumbing, deep cleaning, air conditioning maintenance, and much more.
-                    </p>
-                </div>
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-3 wow fadeInLeft" data-wow-delay="0.2s">
-                        <ul class="nav">
-                            <li class="nav-item me-lg-0 mb-4">
-                                <a class="py-3 px-5 active" data-bs-toggle="pill" href="#ServiceTab-1">
-                                    <span>Electrician</span>
-                                </a>
-                            </li>
-                            <li class="nav-item me-lg-0 mb-4">
-                                <a class="py-3 px-5" data-bs-toggle="pill" href="#ServiceTab-2">
-                                    <span>Plumbing</span>
-                                </a>
-                            </li>
-                            <li class="nav-item me-lg-0 mb-4 mb-lg-0">
-                                <a class="py-3 px-5" data-bs-toggle="pill" href="#ServiceTab-3">
-                                <span>Smart TV</span>
-                                </a>
-                            </li>
-                        </ul>
+                <div class="row g-5">
+                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
+                            <p class="mb-4">This form is currently active to customers for booking plumbing service.</p>
+                                <form method="post" action="{% url "plumbing_service_booking" %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row g-4">
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" required name="name" class="form-control border-0" id="name" placeholder="Your Name">
+                                            <label for="name">Your Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="email" required name="email" class="form-control border-0" id="email" placeholder="Your Email">
+                                            <label for="email">Your Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" required name="phone" maxlength="10" class="form-control border-0" id="phone" placeholder="Phone">
+                                            <label for="phone">Your Phone</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" required name="location" class="form-control border-0" id="project" placeholder="Service">
+                                            <label for="project">Your Location</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" required readonly value="{{plumbing_data.service_name}}" name="service" class="form-control border-0" id="project" placeholder="Service">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" required readonly value="{{plumbing_data.service_price}}" name="price" class="form-control border-0" id="project" placeholder="Service">
+                                            <label for="project">₹ </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control border-0" required name="address" placeholder="Leave a message here" id="message" style="height: 125px"></textarea>
+                                            <label for="message">Your Address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" required type="checkbox" value="" id="flexCheck">
+                                            <label class="form-check-label" for="flexCheck">I agree with the site privacy policy</label>
+                                          </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3">Book Service</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="col-lg-9 wow fadeInRight" data-wow-delay="0.3s">
-                        <div class="tab-content">
-                            <div id="ServiceTab-1" class="tab-pane fade show p-0 active">
-                                <div class="service-carousel owl-carousel">
-                                    {% for e_data in elec_data %}
-                                    <div class="service-item">
-                                        <img src="{{e_data.service_img.url}}" class="img-fluid w-100" alt="">
-                                        <div class="border border-top-0 p-4">
-                                            <h4 class="mb-3">{{e_data.service_name}}</h4>
-                                            <h3 class="mb-3">₹ {{e_data.service_price}}</h3>
-                                            <p class="mb-4"> {{e_data.service_desc}}
-                                            </p>
-                                            <a class="btn btn-primary py-2 px-4" href="{% url "electric_service_booking" e_data.id %}">Book Service</a>
+                    <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
+                        <div>
+                            <h4 class="text-primary">Book Plumbing Service</h4>
+                            <h1 class="display-4 mb-4">Book Our Plumbing Service And Get in Touch with us</h1>
+                            <p class="mb-5"> To verify service and customer personal details for booking confirmation.
+                            </p>
+                            <div class="row g-4">
+                                <div class="col-12">
+                                    <div class="d-inline-flex bg-white w-100 p-4">
+                                        <div>
+                                            <h4>Service Name</h4>
+                                            <p class="mb-0">{{plumbing_data.service_name}}</p>
                                         </div>
                                     </div>
-                                    {% endfor %}
                                 </div>
-                            </div>
-                            <div id="ServiceTab-2" class="tab-pane fade show p-0">
-                                <div class="service-carousel owl-carousel">
-                                    {% for p_data in plum_data %}
-                                    <div class="service-item">
-                                        <img src="{{p_data.service_img.url}}" class="img-fluid w-100" alt="">
-                                        <div class="border border-top-0 p-4">
-                                            <h4 class="mb-3">{{p_data.service_name}}</h4>
-                                            <h3 class="mb-3">₹ {{p_data.service_price}}</h3>
-                                            <p class="mb-4">{{p_data.service_desc}}
-                                            </p>
-                                            <a class="btn btn-primary py-2 px-4" href="{% url "plum_service_booking" p_data.id %}">Book Service</a>
+                                <div class="col-lg-12 col-xl-6">
+                                    <div class="d-inline-flex bg-white w-100 p-4">
+                                        <i class="fas fa-envelope fa-2x text-primary me-4"></i>
+                                        <div>
+                                            <h4>Customer Mail</h4>
+                                            <p class="mb-0">info@example.com</p>
                                         </div>
                                     </div>
-                                    {% endfor %}
                                 </div>
-                            </div>
-                            <div id="ServiceTab-3" class="tab-pane fade show p-0">
-                                <div class="service-carousel owl-carousel">
-                                    {% for t_data in tv_data %}
-                                    <div class="service-item">
-                                        <img src="{{t_data.service_img.url}}" class="img-fluid w-100" alt="">
-                                        <div class="border border-top-0 p-4">
-                                            <h4 class="mb-3">{{t_data.service_name}}</h4>
-                                            <h3 class="mb-3">₹ {{t_data.service_price}}</h3>
-                                            <p class="mb-4">{{t_data.service_desc}}
-                                            </p>
-                                            <a class="btn btn-primary py-2 px-4" href="">Book Service</a>
+                                <div class="col-lg-12 col-xl-6">
+                                    <div class="d-inline-flex bg-white w-100 p-4">
+                                        <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
+                                        <div>
+                                            <h4>Customer Phone</h4>
+                                            <p class="mb-0">(+012) 3456 7890 123</p>
                                         </div>
                                     </div>
-                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -238,8 +257,7 @@
                 </div>
             </div>
         </div>
-        <!-- Services End -->
-
+        <!-- Contact End -->
 
         <!-- Footer Start -->
         <div class="container-fluid footer bg-dark py-5 wow fadeIn" data-wow-delay="0.2s">

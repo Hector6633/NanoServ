@@ -43,3 +43,16 @@ class Electrical_service_booking(models.Model):
     
     def __str__(self) -> str:
         return self.booking_name
+    
+    
+class Plumbing_service_booking(models.Model):
+    booking_name = models.CharField(max_length=50, null=False)
+    booking_email = models.EmailField(blank=False)
+    booking_phone = models.CharField(max_length=10, blank=False)
+    booking_location = models.CharField(max_length=50)
+    booking_service = models.CharField(max_length=50)
+    booking_price = models.CharField(max_length=5)
+    booking_address = models.TextField()
+    
+    def __str__(self) -> str:
+        return self.booking_name
