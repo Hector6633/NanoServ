@@ -40,11 +40,12 @@ class Electrical_service_booking(models.Model):
     booking_service = models.CharField(max_length=50)
     booking_price = models.CharField(max_length=5)
     booking_address = models.TextField()
-    
+    date_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
     def __str__(self) -> str:
         return self.booking_name
-    
-    
+
+
 class Plumbing_service_booking(models.Model):
     booking_name = models.CharField(max_length=50, null=False)
     booking_email = models.EmailField(blank=False)
@@ -53,11 +54,12 @@ class Plumbing_service_booking(models.Model):
     booking_service = models.CharField(max_length=50)
     booking_price = models.CharField(max_length=5)
     booking_address = models.TextField()
-    
+    date_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
     def __str__(self) -> str:
         return self.booking_name
-    
-    
+
+
 class smartTv_service_booking(models.Model):
     booking_name = models.CharField(max_length=50, null=False)
     booking_email = models.EmailField(blank=False)
@@ -66,6 +68,7 @@ class smartTv_service_booking(models.Model):
     booking_service = models.CharField(max_length=50)
     booking_price = models.CharField(max_length=5)
     booking_address = models.TextField()
-    
+    date_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
     def __str__(self) -> str:
         return self.booking_name
