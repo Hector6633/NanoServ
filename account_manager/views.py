@@ -3,7 +3,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from . decorators import unauthenticated_user
+from django.contrib.auth.decorators import login_required
 
+@unauthenticated_user
 def sign_up(request):
     if request.method == 'POST':
         try:
@@ -22,6 +25,7 @@ def sign_up(request):
     return render(request, 'sign_up.html')
 
 
+@unauthenticated_user
 def sign_in(request):
     if request.method == 'POST':
         username = request.POST.get('name')
@@ -38,6 +42,7 @@ def sign_in(request):
             return redirect('sign_in')
     return render(request, 'sign_in.html')
 
+@login_required(login_url='sign_in')
 def sign_out(request):
     logout(request)
     msg = 'Sign out successfully'
