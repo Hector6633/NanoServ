@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def service(request):
@@ -11,10 +12,12 @@ def service(request):
     }
     return render(request, "service.html", service_data)
 
+
 def success_booking(request):
-    return render(request, 'success_booking.html')
+    return render(request, "success_booking.html")
 
 
+@login_required(login_url="sign_in")
 def electric_service_booking(request, pk):
     electric_service_data = {
         "electric_data": Electricians.objects.get(pk=pk),
@@ -22,6 +25,7 @@ def electric_service_booking(request, pk):
     return render(request, "elec_service_booking.html", electric_service_data)
 
 
+@login_required(login_url="sign_in")
 def electrical_service_booking(request):
     if request.method == "POST":
         try:
@@ -44,13 +48,14 @@ def electrical_service_booking(request):
             booking_data.save()
             success_msg = "Successfully Booked"
             messages.success(request, success_msg)
-            return redirect('success_booking')
+            return redirect("success_booking")
         except Exception as e:
             error_mg = "oops!!"
             messages.error(request, error_mg)
-            return redirect('success_booking')
-        
-        
+            return redirect("success_booking")
+
+
+@login_required(login_url="sign_in")
 def plum_service_booking(request, pk):
     plum_service_data = {
         "plumbing_data": Plumbers.objects.get(pk=pk),
@@ -58,6 +63,7 @@ def plum_service_booking(request, pk):
     return render(request, "plum_service_booking.html", plum_service_data)
 
 
+@login_required(login_url="sign_in")
 def plumbing_service_booking(request):
     if request.method == "POST":
         try:
@@ -80,13 +86,14 @@ def plumbing_service_booking(request):
             booking_data.save()
             success_msg = "Successfully Booked"
             messages.success(request, success_msg)
-            return redirect('success_booking')
+            return redirect("success_booking")
         except Exception as e:
             error_mg = "oops!!"
             messages.error(request, error_mg)
-            return redirect('success_booking')
-        
-        
+            return redirect("success_booking")
+
+
+@login_required(login_url="sign_in")
 def tv_service_booking(request, pk):
     smartTv_service_data = {
         "smart_tv_data": SmartTv.objects.get(pk=pk),
@@ -94,6 +101,7 @@ def tv_service_booking(request, pk):
     return render(request, "tv_service_booking.html", smartTv_service_data)
 
 
+@login_required(login_url="sign_in")
 def SmartTv_service_booking(request):
     if request.method == "POST":
         try:
@@ -116,8 +124,8 @@ def SmartTv_service_booking(request):
             booking_data.save()
             success_msg = "Successfully Booked"
             messages.success(request, success_msg)
-            return redirect('success_booking')
+            return redirect("success_booking")
         except Exception as e:
             error_mg = "oops!!"
             messages.error(request, error_mg)
-            return redirect('success_booking')
+            return redirect("success_booking")
