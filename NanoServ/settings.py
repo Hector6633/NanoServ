@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'schema_viewer',
     'livereload',
+    'easyaudit',
     'debug_toolbar',
     'account_manager',
     'themes',
@@ -57,6 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'livereload.middleware.LiveReloadScript',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'easyaudit.middleware.easyaudit.EasyAuditMiddleware',
 ]
 
 ROOT_URLCONF = 'NanoServ.urls'
