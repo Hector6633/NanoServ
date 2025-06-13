@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'axes',
     'schema_viewer',
     'livereload',
     'easyaudit',
@@ -51,6 +53,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -59,6 +62,8 @@ MIDDLEWARE = [
     'livereload.middleware.LiveReloadScript',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'easyaudit.middleware.easyaudit.EasyAuditMiddleware',
+    'axes.middleware.AxesMiddleware',
+    'django_auto_logout.middleware.auto_logout',
 ]
 
 ROOT_URLCONF = 'NanoServ.urls'
@@ -73,6 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_auto_logout.context_processors.auto_logout_client',
             ],
         },
     },
@@ -110,6 +116,20 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Django Axes Configuration
+AUTHENTICATION_BACKENDS = [
+   'axes.backends.AxesBackend', # Axes must be first
+   'django.contrib.auth.backends.ModelBackend',
+]
+
+AXES_FAILURE_LIMIT: 3 
+
+AXES_COOLOFF_TIME: 1  # It represents in hours
+
+AXES_RESET_ON_SUCCESS = True
+
+# AXES_ONLY_USER_FAILURES = True 
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
@@ -146,3 +166,18 @@ INTERNAL_IPS = [
     "127.0.0.1",
     
 ]
+
+SESSION_EXPIRE_SECONDS = 100
+
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+
+SESSION_TIMEOUT_REDIRECT = 'account_manager/sign_in/'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE=True
+
+# Django Auto Session Timeout
+AUTO_LOGOUT = {
+    'IDLE_TIME': timedelta(minutes=1),
+    'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
+    'MESSAGE': 'The session has expired. Please login again to continue.',
+}

@@ -122,6 +122,11 @@
                     </div>
                 </div>
             </div>
+            {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
         </div>
         <!-- Navbar & Hero End -->
 
@@ -550,6 +555,8 @@
             </div>
         </div>
         <!-- Footer End -->
+
+        {{ redirect_to_login_immediately }} <!-- for auto logout after the user login -->
 
         
         <!-- Copyright Start -->
