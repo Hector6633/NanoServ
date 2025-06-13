@@ -106,9 +106,9 @@
                                             <span class="dropdown-toggle">Account</span>
                                         </a>
                                         <div class="dropdown-menu">
-                                            <a href="{% url "index" %}" class="dropdown-item">Sign up</a>
-                                            <a href="{% url "index" %}" class="dropdown-item">Sign in</a>
-                                            <a href="{% url "index" %}" class="dropdown-item">Profile</a>
+                                            <a href="{% url "sign_up" %}" class="dropdown-item">Sign up</a>
+                                            <a href="{% url "sign_in" %}" class="dropdown-item">Sign in</a>
+                                            <a href="{% url "sign_out" %}" class="dropdown-item">Sign out</a>
                                         </div>
                                     </div>
                                     <a href="{% url "contact" %}" class="nav-item nav-link">Contact</a>
@@ -183,7 +183,7 @@
                                 <p class="fs-5"><span class="fa fa-check text-primary me-2"></span> Increasingly popular way to generate electricity.</p>
                                 <p class="fs-5"><span class="fa fa-check text-primary me-2"></span> Protect electrical devices from damage.</p>
                             </div>
-                            <a class="btn btn-primary py-3 px-4 px-md-5 ms-2" href="#">Contact us</a>
+                            <a class="btn btn-primary py-3 px-4 px-md-5 ms-2" href="{% url "contact" %}">Contact us</a>
                         </div>
                     </div>
                     <div class="col-lg-5 wow fadeInRight" data-wow-delay="0.2s">
@@ -502,11 +502,11 @@
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="text-white mb-4">Quick Links</h4>
-                            <a href="#"> Home</a>
-                            <a href="#"> About us</a>
-                            <a href="#"> Service</a>
+                            <a href="{% url "index" %}"> Home</a>
+                            <a href="{% url "about_us" %}"> About us</a>
+                            <a href="{% url "service" %}"> Service</a>
                             <a href="#"> Testimonial</a>
-                            <a href="#"> Contact Us</a>
+                            <a href="{% url "contact" %}"> Contact Us</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">

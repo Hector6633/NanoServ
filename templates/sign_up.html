@@ -109,7 +109,7 @@
                                         <div class="dropdown-menu">
                                             <a href="{% url "sign_up" %}" class="dropdown-item">Sign up</a>
                                             <a href="{% url "sign_in" %}" class="dropdown-item">Sign in</a>
-                                            <a href="{% url "sign_up" %}" class="dropdown-item">Profile</a>
+                                            <a href="{% url "sign_out" %}" class="dropdown-item">Sign out</a>
                                         </div>
                                     </div>
                                     <a href="{% url "contact" %}" class="nav-item nav-link active">Contact</a>
@@ -213,11 +213,11 @@
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="text-white mb-4">Quick Links</h4>
-                            <a href="#"> Home</a>
-                            <a href="#"> About us</a>
-                            <a href="#"> Service</a>
+                            <a href="{% url "index" %}"> Home</a>
+                            <a href="{% url "about_us" %}"> About us</a>
+                            <a href="{% url "service" %}"> Service</a>
                             <a href="#"> Testimonial</a>
-                            <a href="#"> Contact Us</a>
+                            <a href="{% url "contact" %}"> Contact Us</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">

@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-q^4ska@d)v#dpwgt0gdl_dy17m^8aemn%#j-vj#4&wtkw#5)a6'
+SECRET_KEY = 'q^4ska@d)v#dpwgt0gdl_dy17m^8aemn%#j-vj#4&wtkw#5)a6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -117,18 +117,21 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Django Axes Configuration
+
 AUTHENTICATION_BACKENDS = [
    'axes.backends.AxesBackend', # Axes must be first
    'django.contrib.auth.backends.ModelBackend',
 ]
 
-AXES_FAILURE_LIMIT: 3 
+AXES_FAILURE_LIMIT: 8 
 
 AXES_COOLOFF_TIME: 1  # It represents in hours
 
 AXES_RESET_ON_SUCCESS = True
 
-# AXES_ONLY_USER_FAILURES = True 
+AXES_ENABLE_ADMIN = True
+
+AXES_ENABLED = True
 
 
 # Internationalization
@@ -167,7 +170,7 @@ INTERNAL_IPS = [
     
 ]
 
-SESSION_EXPIRE_SECONDS = 100
+SESSION_EXPIRE_SECONDS = 1800
 
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 
@@ -177,7 +180,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 
 # Django Auto Session Timeout
 AUTO_LOGOUT = {
-    'IDLE_TIME': timedelta(minutes=1),
+    'IDLE_TIME': timedelta(minutes=30),
     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
     'MESSAGE': 'The session has expired. Please login again to continue.',
 }
