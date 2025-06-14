@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q^4ska@d)v#dpwgt0gdl_dy17m^8aemn%#j-vj#4&wtkw#5)a6'
+SECRET_KEY = "q^4ska@d)v#dpwgt0gdl_dy17m^8aemn%#j-vj#4&wtkw#5)a6"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,68 +32,75 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'simpleui',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'axes',
-    'schema_viewer',
-    'livereload',
-    'easyaudit',
-    'debug_toolbar',
-    'account_manager',
-    'themes',
-    'services',
-    
+    # "simpleui",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    'django.contrib.sites',
+    "axes",
+    "schema_viewer",
+    "livereload",
+    "easyaudit",
+    "debug_toolbar",
+    "account_manager",
+    "themes",
+    "services",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django_session_timeout.middleware.SessionTimeoutMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'livereload.middleware.LiveReloadScript',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'easyaudit.middleware.easyaudit.EasyAuditMiddleware',
-    'axes.middleware.AxesMiddleware',
-    'django_auto_logout.middleware.auto_logout',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django_session_timeout.middleware.SessionTimeoutMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "livereload.middleware.LiveReloadScript",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "easyaudit.middleware.easyaudit.EasyAuditMiddleware",
+    "axes.middleware.AxesMiddleware",
+    "django_auto_logout.middleware.auto_logout",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
-ROOT_URLCONF = 'NanoServ.urls'
+ROOT_URLCONF = "NanoServ.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'django_auto_logout.context_processors.auto_logout_client',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "django_auto_logout.context_processors.auto_logout_client",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'NanoServ.wsgi.application'
+WSGI_APPLICATION = "NanoServ.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -103,27 +110,29 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
 # Django Axes Configuration
 
 AUTHENTICATION_BACKENDS = [
-   'axes.backends.AxesBackend', # Axes must be first
-   'django.contrib.auth.backends.ModelBackend',
+    "axes.backends.AxesBackend",  # Axes must be first
+    "django.contrib.auth.backends.ModelBackend",
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
-AXES_FAILURE_LIMIT: 8 
+AXES_FAILURE_LIMIT: 8
 
 AXES_COOLOFF_TIME: 1  # It represents in hours
 
@@ -131,15 +140,15 @@ AXES_RESET_ON_SUCCESS = True
 
 AXES_ENABLE_ADMIN = True
 
-AXES_ENABLED = True
+AXES_ENABLED = False
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -149,38 +158,60 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-MEDIA_URL = 'media/'
+MEDIA_URL = "media/"
 
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 INTERNAL_IPS = [
-    
     "127.0.0.1",
-    
 ]
 
 SESSION_EXPIRE_SECONDS = 1800
 
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 
-SESSION_TIMEOUT_REDIRECT = 'account_manager/sign_in/'
+SESSION_TIMEOUT_REDIRECT = "account_manager/sign_in/"
 
-SESSION_EXPIRE_AT_BROWSER_CLOSE=True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Django Auto Session Timeout
 AUTO_LOGOUT = {
-    'IDLE_TIME': timedelta(minutes=30),
-    'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
-    'MESSAGE': 'The session has expired. Please login again to continue.',
+    "IDLE_TIME": timedelta(minutes=30),
+    "REDIRECT_TO_LOGIN_IMMEDIATELY": True,
+    "MESSAGE": "The session has expired. Please login again to continue.",
 }
+
+# For SSO
+SITE_ID = 1
+
+# SOCIALACCOUNT_PROVIDERS = {
+#     "google": {
+#         "SCOPE": [
+#             "profile",
+#             "email",
+#         ],
+#         "AUTH_PARAMS": {
+#             "access_type": "online",
+#         },
+#         "OAUTH_PKCE_ENABLED": True,
+#     }
+# }
+
+SOCIALACCOUNT_QUERY_EMAIL = True
+
+LOGIN_REDIRECT_URL = 'index'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
