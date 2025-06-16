@@ -178,4 +178,5 @@ cython_debug/
 .idea
 .dockerignore
 .vscode
+.env
 
