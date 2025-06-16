@@ -109,7 +109,9 @@
                                         <div class="dropdown-menu">
                                             <a href="{% url "sign_up" %}" class="dropdown-item">Sign up</a>
                                             <a href="{% url "sign_in" %}" class="dropdown-item">Sign in</a>
+                                            {% if user.is_authenticated %}
                                             <a href="{% url "sign_out" %}" class="dropdown-item">Sign out</a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <a href="{% url "contact" %}" class="nav-item nav-link active">Contact</a>
@@ -188,6 +190,9 @@
                                     </div>
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100 py-3">Sign Up</button>
+                                    </div>
+                                    <div class="col-12">
+                                        <a class="btn btn-primary w-100 py-3" href="http://127.0.0.1:8000/accounts/login/">Sign Up With Google</a>
                                     </div>
                                 </div>
                             </form>
