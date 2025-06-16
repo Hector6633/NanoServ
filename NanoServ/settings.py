@@ -12,19 +12,24 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Define and Initialise environment variables
+env = environ.Env()
+
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "q^4ska@d)v#dpwgt0gdl_dy17m^8aemn%#j-vj#4&wtkw#5)a6"
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = []
 
@@ -32,7 +37,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # "simpleui",
+    "simpleui",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -43,7 +48,7 @@ INSTALLED_APPS = [
     "axes",
     "schema_viewer",
     "livereload",
-    "easyaudit",
+    # "easyaudit",
     "debug_toolbar",
     "account_manager",
     "themes",
@@ -67,7 +72,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "livereload.middleware.LiveReloadScript",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    "easyaudit.middleware.easyaudit.EasyAuditMiddleware",
+    # "easyaudit.middleware.easyaudit.EasyAuditMiddleware",
     "axes.middleware.AxesMiddleware",
     "django_auto_logout.middleware.auto_logout",
     "allauth.account.middleware.AccountMiddleware",
