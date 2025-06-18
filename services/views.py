@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 def service(request):
@@ -46,6 +48,16 @@ def electrical_service_booking(request):
                 booking_address=booking_address,
             )
             booking_data.save()
+            subject = "NanoServ Electrical service booking"
+            message = f"Dear {booking_name},\nYou are successfully booked our Electrical Service with NanoServ. Our service advisor will verify your documents and get in touch with you.\nHere are your service details:\n\tName: {booking_name}\n\tEmail:{booking_email}\n\tPhone Number: {booking_phone}\n\tAddress: {booking_address}\n\tLocation: {booking_location}\n\tService Name :{booking_service}\nPlease keep this email for your records and do not forward or share any other person.\nTo get started, please visit our website at https://127.0.0.1:8000/ and use our services.\nFor more details login with NanoServ."
+            recipient = booking_email
+            send_mail(
+                subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                [recipient],
+                fail_silently=False,
+            )
             success_msg = "Successfully Booked"
             messages.success(request, success_msg)
             return redirect("success_booking")
@@ -84,6 +96,16 @@ def plumbing_service_booking(request):
                 booking_address=booking_address,
             )
             booking_data.save()
+            subject = "NanoServ Plumbing service booking"
+            message = f"Dear {booking_name},\nYou are successfully booked our Plumbing Service with NanoServ. Our service advisor will verify your documents and get in touch with you.\nHere are your service details:\n\tName: {booking_name}\n\tEmail:{booking_email}\n\tPhone Number: {booking_phone}\n\tAddress: {booking_address}\n\tLocation: {booking_location}\n\tService Name :{booking_service}\nPlease keep this email for your records and do not forward or share any other person.\nTo get started, please visit our website at https://127.0.0.1:8000/ and use our services.\nFor more details login with NanoServ."
+            recipient = booking_email
+            send_mail(
+                subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                [recipient],
+                fail_silently=False,
+            )
             success_msg = "Successfully Booked"
             messages.success(request, success_msg)
             return redirect("success_booking")
@@ -122,6 +144,16 @@ def SmartTv_service_booking(request):
                 booking_address=booking_address,
             )
             booking_data.save()
+            subject = "NanoServ Smart TV service booking"
+            message = f"Dear {booking_name},\nYou are successfully booked our Smart TV service with NanoServ. Our service advisor will verify your documents and get in touch with you.\nHere are your service details:\n\tName: {booking_name}\n\tEmail:{booking_email}\n\tPhone Number: {booking_phone}\n\tAddress: {booking_address}\n\tLocation: {booking_location}\n\tService Name :{booking_service}\nPlease keep this email for your records and do not forward or share any other person.\nTo get started, please visit our website at https://127.0.0.1:8000/ and use our services.\nFor more details login with NanoServ."
+            recipient = booking_email
+            send_mail(
+                subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                [recipient],
+                fail_silently=False,
+            )
             success_msg = "Successfully Booked"
             messages.success(request, success_msg)
             return redirect("success_booking")

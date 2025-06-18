@@ -60,7 +60,7 @@
                                         <a href="#" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
                                     </div>
                                     <div class="ps-3">
-                                        <a href="mailto:example@gmail.com" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>example@gmail.com</a>
+                                        <a href="mailto:example@gmail.com" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>nanoservinfo@gmail.com</a>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +115,6 @@
                                     </div>
                                     <a href="{% url "contact" %}" class="nav-item nav-link">Contact</a>
                                     <div class="nav-btn ps-3">
-                                        <button class="btn-search btn btn-primary btn-md-square mt-2 mt-lg-0 mb-4 mb-lg-0 flex-shrink-0" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
                                         {% if user.is_authenticated %}
                                         <a href="#" class="btn btn-primary py-2 px-4 ms-0 ms-lg-3"> Hello, {{user.username}}</a>
                                         {% else %}
@@ -130,25 +129,6 @@
             </div>
         </div>
         <!-- Navbar & Hero End -->
-
-        <!-- Modal Search Start -->
-        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content rounded-0">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body d-flex align-items-center bg-primary">
-                        <div class="input-group w-75 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                            <span id="search-icon-1" class="btn bg-light border nput-group-text p-3"><i class="fa fa-search"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal Search End -->
 
 
         <!-- Header Start -->
@@ -182,7 +162,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, minus. At velit nam, animi culpa fugiat neque facere illum, eum possimus omnis accusantium deleniti consectetur temporibus necessitatibus asperiores sunt dicta?
+                            <p class="mb-4">At NanoServ, our mission is to transform the way home and commercial services are perceived and delivered. As a leading online home service platform in kerala, we aim to simplify lives and empower businesses by providing a comprehensive range of top-tier services, including electrical repairs, plumbing, deep cleaning, air conditioning maintenance, and much more. Our goal is to be more than just a service provider—we strive to be a partner in ensuring the comfort, functionality, and efficiency of every space we touch.
                             </p>
                             <div class="text-dark mb-4">
                                 <p class="fs-5"><span class="fa fa-check text-primary me-2"></span> Installed, maintained and repaired lighting for clients.</p>
@@ -223,7 +203,7 @@
                     <div class="col-lg-8">
                         <div class="">
                             <h4 class="text-white">Contact With Me</h4>
-                            <h1 class="display-4 text-white mb-0">We provide professional electric and plumbing services for our customer</h1>
+                            <h1 class="display-4 text-white mb-0">We provide professional Electrical, Plumbing, and Smart TV services for our customer</h1>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -400,7 +380,7 @@
                 <div class="d-flex flex-column mx-auto text-center mb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Our Team</h4>
                     <h1 class="display-4 mb-4">Electricity Service offerings</h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, deserunt provident ab voluptates rerum eaque eum magni autem atque in minus laboriosam corrupti deleniti voluptatibus rem reiciendis modi veniam animi?
+                    <p class="mb-0">We provide professional Electrical services for our customer.
                     </p>
                 </div>
                 <div class="row g-4">
@@ -482,10 +462,6 @@
             <div class="container py-5">
                 <div class="row g-5 mb-5 align-items-center">
                     <div class="col-lg-7">
-                        <div class="position-relative mx-auto">
-                            <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Email address to Subscribe">
-                            <button type="button" class="btn btn-primary position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
-                        </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="d-flex align-items-center justify-content-center justify-content-lg-end">

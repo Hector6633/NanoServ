@@ -37,8 +37,8 @@ class Electrical_service_booking(models.Model):
     booking_email = models.EmailField(blank=False, null=False)
     booking_phone = models.CharField(max_length=10, blank=False, null=False)
     booking_location = models.CharField(max_length=50, null=False)
-    booking_service = models.CharField(max_length=50,null=False)
-    booking_price = models.CharField(max_length=5,null=False)
+    booking_service = models.CharField(max_length=50, null=False)
+    booking_price = models.CharField(max_length=5, null=False)
     booking_address = models.TextField(null=False)
     date_time = models.DateTimeField(auto_now_add=True)
 
@@ -48,11 +48,11 @@ class Electrical_service_booking(models.Model):
 
 class Plumbing_service_booking(models.Model):
     booking_name = models.CharField(max_length=50, null=False)
-    booking_email = models.EmailField(blank=False,null=False)
-    booking_phone = models.CharField(max_length=10, blank=False,null=False)
-    booking_location = models.CharField(max_length=50,null=False)
-    booking_service = models.CharField(max_length=50,null=False)
-    booking_price = models.CharField(max_length=5,null=False)
+    booking_email = models.EmailField(blank=False, null=False)
+    booking_phone = models.CharField(max_length=10, blank=False, null=False)
+    booking_location = models.CharField(max_length=50, null=False)
+    booking_service = models.CharField(max_length=50, null=False)
+    booking_price = models.CharField(max_length=5, null=False)
     booking_address = models.TextField(null=False)
     date_time = models.DateTimeField(auto_now_add=True)
 
@@ -62,11 +62,11 @@ class Plumbing_service_booking(models.Model):
 
 class smartTv_service_booking(models.Model):
     booking_name = models.CharField(max_length=50, null=False)
-    booking_email = models.EmailField(blank=False,null=False)
-    booking_phone = models.CharField(max_length=10, blank=False,null=False)
-    booking_location = models.CharField(max_length=50,null=False)
-    booking_service = models.CharField(max_length=50,null=False)
-    booking_price = models.CharField(max_length=5,null=False)
+    booking_email = models.EmailField(blank=False, null=False)
+    booking_phone = models.CharField(max_length=10, blank=False, null=False)
+    booking_location = models.CharField(max_length=50, null=False)
+    booking_service = models.CharField(max_length=50, null=False)
+    booking_price = models.CharField(max_length=5, null=False)
     booking_address = models.TextField(null=False)
     date_time = models.DateTimeField(auto_now_add=True)
 
