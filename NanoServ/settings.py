@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "account_manager",
     "themes",
     "services",
+    "crm",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",

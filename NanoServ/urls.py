@@ -28,6 +28,7 @@ urlpatterns = [
     path("account_manager/", include("account_manager.urls")),
     path("", include("themes.urls")),
     path("services/", include("services.urls")),
+    path("crm/", include("crm.urls")),
 ] + debug_toolbar_urls()
 
 # for development purpose
