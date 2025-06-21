@@ -44,7 +44,7 @@ def contact(request):
             messages.success(request, success_msg)
             return redirect("contact")
         except Exception as e:
-            error_msg = "Server unreachable"
+            error_msg = "Server Unreachable"
             messages.error(request, error_msg)
             return redirect("contact")
     return render(request, "contact.html")
