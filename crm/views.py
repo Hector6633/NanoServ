@@ -34,3 +34,28 @@ def index(request):
         'tv_data':SmartTv.objects.all(),
     }
     return render(request, 'crm_templates/index.html', total_data)
+
+@allowed_users(allowed_roles=['admin'])
+def electrical_dashboard(request):
+    electrical_service = {
+        'electrical_data':Electrical_service_booking.objects.all(),
+    }
+    return render(request, 'crm_templates/electrical_dashboard.html', electrical_service)
+@allowed_users(allowed_roles=['admin'])
+def plumbing_dashboard(request):
+    plumbing_service = {
+        'plumbing_data':Plumbing_service_booking.objects.all(),
+    }
+    return render(request, 'crm_templates/plumbing_dashboard.html', plumbing_service)
+@allowed_users(allowed_roles=['admin'])
+def smart_tv_dashboard(request):
+    tv_service = {
+        'smart_tv_data':smartTv_service_booking.objects.all(),
+    }
+    return render(request, 'crm_templates/smart_tv_dashboard.html', tv_service)
+@allowed_users(allowed_roles=['admin'])
+def customer_feedback(request):
+    customer_feedback = {
+        'feedbacks':Contact.objects.all(),
+    }
+    return render(request, 'crm_templates/customer_feedback.html', customer_feedback)
