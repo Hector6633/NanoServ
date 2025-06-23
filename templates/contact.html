@@ -220,8 +220,14 @@
                                     </div>
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
-                                            <input type="text" required name="service" maxlength="50" class="form-control border-0" id="project" placeholder="Service">
-                                            <label for="project">Our Service</label>
+                                        <select id="project" name="service" class="form-control border-0" required>
+                                            <option value="">SELECT</option>
+                                            <option name="service" value="Electrical Service">Electrical Service</option>
+                                            <option name="service" value="Plumbing Service">Plumbing Service</option>
+                                            <option name="service" value="Smart TV Service">Smart TV Service</option>
+                                        </select>
+                                        {% comment %} <input type="text" required name="service" maxlength="50" class="form-control border-0" id="project" placeholder="Service">
+                                        <label for="project">Our Service</label> {% endcomment %}
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -232,12 +238,12 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheck">
+                                            <input class="form-check-input" required type="checkbox" value="" id="flexCheck">
                                             <label class="form-check-label" required for="flexCheck">I agree with the site privacy policy</label>
                                           </div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3">Send Message</button>
+                                        <button class="btn btn-primary w-100 py-3">Submit</button>
                                     </div>
                                 </div>
                             </form>
