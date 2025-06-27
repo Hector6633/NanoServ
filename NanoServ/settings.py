@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     "axes",
     "schema_viewer",
     "livereload",
-    # "easyaudit",
+    "easyaudit",
     'auditlog',
     "debug_toolbar",
     "account_manager",
@@ -74,7 +74,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "livereload.middleware.LiveReloadScript",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    # "easyaudit.middleware.easyaudit.EasyAuditMiddleware",
+    "easyaudit.middleware.easyaudit.EasyAuditMiddleware",
     "axes.middleware.AxesMiddleware",
     "django_auto_logout.middleware.auto_logout",
     "allauth.account.middleware.AccountMiddleware",
@@ -229,3 +229,18 @@ EMAIL_PORT = env("EMAIL_PORT")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 SERVER_EMAIL = env("SERVER_EMAIL")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+
+# For production settings
+# HTTPS SETTINGS
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False
+
+# HSTC SETTINGS
+SECURE_HSTS_SECONDS = 31536000 # 1 YEAR
+SECURE_HSTS_PRELOAD = False
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+
+# Preventing from XSS
+SECURE_BROWSER_XSS_FILTER = False
+SECURE_CONTENT_TYPE_NOSNIFF = False
