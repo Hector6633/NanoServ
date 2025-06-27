@@ -1,5 +1,5 @@
 from django.db import models
-
+from auditlog.registry import auditlog
 
 # Create your models here.
 class Electricians(models.Model):
@@ -10,6 +10,8 @@ class Electricians(models.Model):
 
     def __str__(self) -> str:
         return self.service_name
+    
+auditlog.register(Electricians)
 
 
 class Plumbers(models.Model):
@@ -20,6 +22,8 @@ class Plumbers(models.Model):
 
     def __str__(self) -> str:
         return self.service_name
+    
+auditlog.register(Plumbers)
 
 
 class SmartTv(models.Model):
@@ -30,6 +34,8 @@ class SmartTv(models.Model):
 
     def __str__(self) -> str:
         return self.service_name
+
+auditlog.register(SmartTv)
 
 
 class Electrical_service_booking(models.Model):
@@ -44,7 +50,7 @@ class Electrical_service_booking(models.Model):
 
     def __str__(self) -> str:
         return self.booking_name
-
+    
 
 class Plumbing_service_booking(models.Model):
     booking_name = models.CharField(max_length=50, null=False)

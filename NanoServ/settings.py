@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "schema_viewer",
     "livereload",
     # "easyaudit",
+    'auditlog',
     "debug_toolbar",
     "account_manager",
     "themes",
@@ -77,6 +78,7 @@ MIDDLEWARE = [
     "axes.middleware.AxesMiddleware",
     "django_auto_logout.middleware.auto_logout",
     "allauth.account.middleware.AccountMiddleware",
+    'auditlog.middleware.AuditlogMiddleware',
 ]
 
 ROOT_URLCONF = "NanoServ.urls"
