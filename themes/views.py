@@ -17,6 +17,9 @@ def about_us(request):
 def blog(request):
     return render(request, "blog.html")
 
+def privacy_policy(request):
+    return render(request, "privacy-policy.html")
+
 
 def contact(request):
     if request.method == "POST":

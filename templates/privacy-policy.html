@@ -51,7 +51,7 @@
         <div class="container-fluid header-top">
             <div class="container d-flex align-items-center">
                 <div class="d-flex align-items-center h-100">
-                    <a href="{% url "index" %}" class="navbar-brand" style="height: 125px;">
+                    <a href="#" class="navbar-brand" style="height: 125px;">
                         <h1 class="text-primary mb-0"><i class="fas fa-bolt"></i> NanoServ</h1>
                         <!-- <img src="img/logo.png" alt="Logo"> -->
                     </a>
@@ -93,7 +93,7 @@
                     </div>
                     <div class="nav-bar px-0 py-lg-0" style="height: 80px;">
                         <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
-                            <a href="#" class="navbar-brand-2">
+                            <a href="{% url "index" %}" class="navbar-brand-2">
                                 <h1 class="text-primary mb-0"><i class="fas fa-bolt"></i> NanoServ</h1>
                                 <!-- <img src="img/logo.png" alt="Logo"> -->
                             </a>  
@@ -104,9 +104,9 @@
                                 <div class="navbar-nav mx-0 mx-lg-auto bg-white">
                                     <a href="{% url "index" %}" class="nav-item nav-link">Home</a>
                                     <a href="{% url "about_us" %}" class="nav-item nav-link">About</a>
-                                    <a href="{% url "service" %}" class="nav-item nav-link active">Service</a>
+                                    <a href="{% url "service" %}" class="nav-item nav-link">Service</a>
                                     <a href="{% url "blog" %}" class="nav-item nav-link">Blog</a>
-                                    <a href="{% url "privacy_policy" %}" class="nav-item nav-link">PrivacyPolicy</a>
+                                    <a href="{% url "privacy_policy" %}" class="nav-item nav-link active">PrivacyPolicy</a>
                                     <div class="nav-item dropdown">
                                         <a href="#" class="nav-link" data-bs-toggle="dropdown">
                                             <span class="dropdown-toggle">Account</span>
@@ -137,102 +137,26 @@
         <!-- Navbar & Hero End -->
 
 
-
         <!-- Header Start -->
         <div class="container-fluid bg-breadcrumb">
             <div class="container text-center py-5" style="max-width: 900px;">
-                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Our Services</h4>   
+                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Our Privacy Policy</h4>  
             </div>
         </div>
         <!-- Header End -->
 
 
-        <!-- Services Start -->
-        <div class="container-fluid service py-5">
+        <!-- Blog Start -->
+        <div class="container-fluid blog py-5">
             <div class="container py-5">
-                <div class="d-flex flex-column mx-auto text-center mb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Our Services</h4>
-                    <h1 class="display-4 mb-4">The Best Service For You</h1>
-                    <p class="mb-0">We provide the best service and our mission is to transform the way home and commercial services are perceived and delivered. As a leading online home service platform in kerala, we aim to simplify lives and empower businesses by providing a comprehensive range of top-tier services, including electrical repairs, plumbing, deep cleaning, air conditioning maintenance, and much more.
+                <divThis class="d-flex flex-column mx-auto text-center mb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h1 class="display-4 mb-4"> Information we collect and how we use it</h1>
+                    <p class="mb-0">We collect, receive and store your Personal Information. If you provide your third-party account credentials ("Third Party Account Information") to us, you understand that some content and information in those accounts may be transmitted to your account with us if you authorise such transmissions and that Third Party Account Information transmitted to us shall be covered by this Privacy Policy. You may opt to not provide us with certain information, however that will restrict you from registering with us or availing some of our features and services.We use commercially reasonable efforts to ensure that the collection of Personal Information is limited to that which is necessary to fulfill the purposes identified below. If we use or plan to use your information in a manner different than the purpose for which it is collected, then we will ask you for your consent prior to such use. The Personal Information collected will be used only for the purpose of enabling you to use the services provided by us, to help promote a safe service, calibrate consumer interest in our products and services, inform you about online offers and updates, troubleshoot problems, customize User experience, detect and protect us against error, fraud and other criminal activity, collect money, enforce our terms and conditions, and as otherwise described to you at the time of collection of such information.
                     </p>
                 </div>
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-3 wow fadeInLeft" data-wow-delay="0.2s">
-                        <ul class="nav">
-                            <li class="nav-item me-lg-0 mb-4">
-                                <a class="py-3 px-5 active" data-bs-toggle="pill" href="#ServiceTab-1">
-                                    <span>Electrician</span>
-                                </a>
-                            </li>
-                            <li class="nav-item me-lg-0 mb-4">
-                                <a class="py-3 px-5" data-bs-toggle="pill" href="#ServiceTab-2">
-                                    <span>Plumbing</span>
-                                </a>
-                            </li>
-                            <li class="nav-item me-lg-0 mb-4 mb-lg-0">
-                                <a class="py-3 px-5" data-bs-toggle="pill" href="#ServiceTab-3">
-                                <span>Smart TV</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-9 wow fadeInRight" data-wow-delay="0.3s">
-                        <div class="tab-content">
-                            <div id="ServiceTab-1" class="tab-pane fade show p-0 active">
-                                <div class="service-carousel owl-carousel">
-                                    {% for e_data in elec_data %}
-                                    <div class="service-item">
-                                        <img src="{{e_data.service_img.url}}" class="img-fluid w-100" alt="">
-                                        <div class="border border-top-0 p-4">
-                                            <h4 class="mb-3">{{e_data.service_name}}</h4>
-                                            <h3 class="mb-3">₹ {{e_data.service_price}}</h3>
-                                            <p class="mb-4"> {{e_data.service_desc}}
-                                            </p>
-                                            <a class="btn btn-primary py-2 px-4" href="{% url "electric_service_booking" e_data.id %}">Book Service</a>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            <div id="ServiceTab-2" class="tab-pane fade show p-0">
-                                <div class="service-carousel owl-carousel">
-                                    {% for p_data in plum_data %}
-                                    <div class="service-item">
-                                        <img src="{{p_data.service_img.url}}" class="img-fluid w-100" alt="">
-                                        <div class="border border-top-0 p-4">
-                                            <h4 class="mb-3">{{p_data.service_name}}</h4>
-                                            <h3 class="mb-3">₹ {{p_data.service_price}}</h3>
-                                            <p class="mb-4">{{p_data.service_desc}}
-                                            </p>
-                                            <a class="btn btn-primary py-2 px-4" href="{% url "plum_service_booking" p_data.id %}">Book Service</a>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            <div id="ServiceTab-3" class="tab-pane fade show p-0">
-                                <div class="service-carousel owl-carousel">
-                                    {% for t_data in tv_data %}
-                                    <div class="service-item">
-                                        <img src="{{t_data.service_img.url}}" class="img-fluid w-100" alt="">
-                                        <div class="border border-top-0 p-4">
-                                            <h4 class="mb-3">{{t_data.service_name}}</h4>
-                                            <h3 class="mb-3">₹ {{t_data.service_price}}</h3>
-                                            <p class="mb-4">{{t_data.service_desc}}
-                                            </p>
-                                            <a class="btn btn-primary py-2 px-4" href="{% url "tv_service_booking" t_data.id %}">Book Service</a>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-        <!-- Services End -->
-
+         </div>
+        <!-- Blog End -->
 
         <!-- Footer Start -->
         <div class="container-fluid footer bg-dark py-5 wow fadeIn" data-wow-delay="0.2s">
