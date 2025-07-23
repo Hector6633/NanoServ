@@ -1,262 +1,133 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - NanoServ</title>
+  <style>
+    /* Base reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <head>
-        <meta charset="utf-8">
-        <title>NanoServ</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 20px;
+    }
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Edu+TAS+Beginner:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <!-- Web Icon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static "icon/apple-touch-icon.png" %}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static "icon/favicon-32x32.png" %}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{% static "icon/favicon-16x16.png" %}">
-        <link rel="manifest" href="{% static "icon/site.webmanifest" %}">
+    .container {
+      max-width: 960px;
+      margin: auto;
+      background: #fff;
+      padding: 40px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+    }
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    h1, h2, h3 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
 
-        <!-- Libraries Stylesheet -->
-        <link rel="stylesheet" href="{% static "lib/animate/animate.min.css" %}"/>
-        <link href="{% static "lib/owlcarousel/assets/owl.carousel.min.css" %}" rel="stylesheet">
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
 
+    p {
+      margin-bottom: 20px;
+    }
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
 
-        <!-- Template Stylesheet -->
-        <link href="{% static "css/style.css" %}" rel="stylesheet">
-    </head>
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
 
-    <body>
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    
+    <p>Last updated: July 23, 2025</p>
 
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
+    <p>At NanoServ, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our web or mobile application.</p>
 
-        
+    <h2>1. Introduction</h2>
+    <p>NanoServ ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your personal data when you access NanoServ using your Google account via OAuth authentication.
 
-        <!-- Navbar & Hero Start -->
-        <div class="container-fluid header-top">
-            <div class="container d-flex align-items-center">
-                <div class="d-flex align-items-center h-100">
-                    <a href="#" class="navbar-brand" style="height: 125px;">
-                        <h1 class="text-primary mb-0"><i class="fas fa-bolt"></i> NanoServ</h1>
-                        <!-- <img src="img/logo.png" alt="Logo"> -->
-                    </a>
-                </div>
-                <div class="w-100 h-100">
-                    <div class="topbar px-0 py-2 d-none d-lg-block" style="height: 45px;">
-                        <div class="row gx-0 align-items-center">
-                            <div class="col-lg-8 text-center text-lg-center mb-lg-0">
-                                <div class="d-flex flex-wrap">
-                                    <div class="border-end border-primary pe-3">
-                                        <a href="#" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
-                                    </div>
-                                    <div class="ps-3">
-                                        <a href="mailto:example@gmail.com" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>nanoservinfo@gmail.com</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 text-center text-lg-end">
-                                <div class="d-flex justify-content-end">
-                                    <div class="d-flex border-end border-primary pe-3">
-                                        <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-twitter"></i></a>
-                                        <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-instagram"></i></a>
-                                        <a class="btn p-0 text-primary me-0" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                    <div class="dropdown ms-3">
-                                        <a href="#" class="dropdown-toggle text-white" data-bs-toggle="dropdown"><small class="text-body"><i class="fas fa-globe-europe text-primary me-2"></i> English</small></a>
-                                        <div class="dropdown-menu">
-                                            <a href="#" class="dropdown-item">English</a>
-                                            <a href="#" class="dropdown-item">Japan</a>
-                                            <a href="#" class="dropdown-item">Germany</a>
-                                            <a href="#" class="dropdown-item">Spanish</a>
-                                            <a href="#" class="dropdown-item">Arabic</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nav-bar px-0 py-lg-0" style="height: 80px;">
-                        <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
-                            <a href="{% url "index" %}" class="navbar-brand-2">
-                                <h1 class="text-primary mb-0"><i class="fas fa-bolt"></i> NanoServ</h1>
-                                <!-- <img src="img/logo.png" alt="Logo"> -->
-                            </a>  
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                                <span class="fa fa-bars"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarCollapse">
-                                <div class="navbar-nav mx-0 mx-lg-auto bg-white">
-                                    <a href="{% url "index" %}" class="nav-item nav-link">Home</a>
-                                    <a href="{% url "about_us" %}" class="nav-item nav-link">About</a>
-                                    <a href="{% url "service" %}" class="nav-item nav-link">Service</a>
-                                    <a href="{% url "blog" %}" class="nav-item nav-link">Blog</a>
-                                    <a href="{% url "privacy_policy" %}" class="nav-item nav-link active">PrivacyPolicy</a>
-                                    <div class="nav-item dropdown">
-                                        <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                                            <span class="dropdown-toggle">Account</span>
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <a href="{% url "sign_up" %}" class="dropdown-item">Sign up</a>
-                                            <a href="{% url "sign_in" %}" class="dropdown-item">Sign in</a>
-                                            {% if user.is_authenticated %}
-                                            <a href="{% url "sign_out" %}" class="dropdown-item">Sign out</a>
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                    <a href="{% url "contact" %}" class="nav-item nav-link">Contact</a>
-                                    <div class="nav-btn ps-3">
-                                        {% if user.is_authenticated %}
-                                        <a href="#" class="btn btn-primary py-2 px-4 ms-0 ms-lg-3"> Hello, {{user.username}}</a>
-                                        {% else %}
-                                        <a href="#" class="btn btn-primary py-2 px-4 ms-0 ms-lg-3"> Hello, I'm NanoServ</a>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Navbar & Hero End -->
+NanoServ is a responsive and user-friendly web application that provides digital solutions for booking Plumbing, Smart TV, and Electrical services in remote areas, helping bridge the service accessibility gap in underserved locations.</p>
+    
 
+    <h2>1. Information We Collect</h2>
+    <p>When you sign in through Google OAuth, we may collect the following data:</p>
+    <ul>
+      <li>Personal Information (e.g., name, email address, phone number)</li>
+      <li>Service Booking Data (e.g., service category, location, booking time)</li>
+      <li>Device and Usage Data (e.g., browser type, operating system, IP address)</li>
+    </ul>
+    <p>We do not collect your password, contacts, calendar data, or any sensitive information beyond the above-listed data.</p>
 
-        <!-- Header Start -->
-        <div class="container-fluid bg-breadcrumb">
-            <div class="container text-center py-5" style="max-width: 900px;">
-                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Our Privacy Policy</h4>  
-            </div>
-        </div>
-        <!-- Header End -->
+    <h2>2. How We Use Your Information</h2>
+    <p>The information retrieved via Google OAuth is used to:</p>
+    <ul>
+      <li>Authenticate your login securely</li>
+      <li>Personalize your user experience on NanoServ</li>
+      <li>Enable account management, service booking, and notifications</li>
+      <li>Improve our services based on user interaction</li>
+    </ul>
+    <p>We do not sell or share your personal information with third-party advertisers.</p>
 
+    <h2>3. Data Storage & Security</h2>
+    <p>We implement strong security measures to protect your personal data from unauthorized access, alteration, disclosure, or destruction. All sensitive information is transmitted using secure encryption protocols.</p>
+    <ul>
+      <li>Your data is stored securely on our servers, with access limited to authorized personnel.</li>
+      <li>We implement industry-standard encryption and access controls to protect your information.</li>
+    </ul>
 
-        <!-- Blog Start -->
-        <div class="container-fluid blog py-5">
-            <div class="container py-5">
-                <divThis class="d-flex flex-column mx-auto text-center mb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h1 class="display-4 mb-4"> Information we collect and how we use it</h1>
-                    <p class="mb-0">We collect, receive and store your Personal Information. If you provide your third-party account credentials ("Third Party Account Information") to us, you understand that some content and information in those accounts may be transmitted to your account with us if you authorise such transmissions and that Third Party Account Information transmitted to us shall be covered by this Privacy Policy. You may opt to not provide us with certain information, however that will restrict you from registering with us or availing some of our features and services.We use commercially reasonable efforts to ensure that the collection of Personal Information is limited to that which is necessary to fulfill the purposes identified below. If we use or plan to use your information in a manner different than the purpose for which it is collected, then we will ask you for your consent prior to such use. The Personal Information collected will be used only for the purpose of enabling you to use the services provided by us, to help promote a safe service, calibrate consumer interest in our products and services, inform you about online offers and updates, troubleshoot problems, customize User experience, detect and protect us against error, fraud and other criminal activity, collect money, enforce our terms and conditions, and as otherwise described to you at the time of collection of such information.
-                    </p>
-                </div>
-            </div>
-         </div>
-        <!-- Blog End -->
+    <h2>4. Cookies and Tracking</h2>
+    <p>We use cookies to enhance your browsing experience. You may choose to disable cookies through your browser settings.</p>
 
-        <!-- Footer Start -->
-        <div class="container-fluid footer bg-dark py-5 wow fadeIn" data-wow-delay="0.2s">
-            <div class="container py-5">
-                <div class="row g-5 mb-5 align-items-center">
-                    <div class="col-lg-7">
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
-                            <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-light btn-md-square me-0" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row g-5">
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <div class="footer-item">
-                                <h3 class="text-white mb-4"><i class="fas fa-bolt text-primary me-3"></i>NanoServ</h3>
-                                <p class="mb-3">NanoServ, our mission is to transform the way home and commercial services are perceived and delivered.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <h4 class="text-white mb-4">Quick Links</h4>
-                            <a href="{% url "index" %}"> Home</a>
-                            <a href="{% url "about_us" %}"> About us</a>
-                            <a href="{% url "service" %}"> Service</a>
-                            <a href="#"> Testimonial</a>
-                            <a href="{% url "contact" %}"> Contact Us</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <h4 class="text-white mb-4">Our Services</h4>
-                            <a href="#"> Plumbing Service</a>
-                            <a href="#"> Electrical Service</a>
-                            <a href="#"> Smart Tv Service</a>
-                            <a href="#"> Electrical Station Booking</a>
-                            <a href="#"> Find Electrical Station</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <h4 class="text-white mb-4">Contact Info</h4>
-                            <a href="#"><i class="fa fa-map-marker-alt text-primary me-2"></i> 123 Street, New York, USA</a>
-                            <a href="mailto:info@example.com"><i class="fas fa-envelope text-primary me-2"></i> info@example.com</a>
-                            <a href="mailto:info@example.com"><i class="fas fa-envelope text-primary me-2"></i> info@example.com</a>
-                            <a href="tel:+012 345 67890"><i class="fas fa-phone text-primary me-2"></i> +012 345 67890</a>
-                            <a href="tel:+012 345 67890" class="mb-3"><i class="fas fa-print text-primary me-2"></i> +012 345 67890</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
+    <h2>5. Third-Party Access</h2>
+    <p>NanoServ only uses Google OAuth to streamline login and account access. We do not request or access any additional data beyond your basic profile unless explicitly authorized by you.</p>
 
-        
-        <!-- Copyright Start -->
-        <div class="container-fluid copyright py-4">
-            <div class="container">
-                <div class="row g-4 align-items-center">
-                    <div class="col-md-6 text-center text-md-start mb-md-0">
-                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>NanoServ</a>, All right reserved.</span>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end text-body">
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom text-white" href="https://rajeevportfolio.pythonanywhere.com">Rajeev</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Copyright End -->
+    <h2>6. Your Rights</h2>
+    <p>You have the right to access, update, or delete your personal data. Contact us at support@nanoserv.com to make such requests.</p>
+    <ul>
+        <li>View and update your profile information</li>
+        <li>Revoke OAuth permissions via your Google Account settings</li>
+        <li>Request account deletion by contacting us at [Insert Contact Email]</li>
+    </ul>
 
-         
+    <h2>7. Changes to This Privacy Policy</h2>
+    <p>We may update our Privacy Policy from time to time. We will notify you of changes by posting the new policy on this page.</p>
+    <ul>
+        <li>Review and update your Google account permissions at any time from your Google Account settings</li>
+        <li>Contact us to request the deletion of your user data from our platform</li>
+    </ul>
 
-
-        
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
-
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="{% static "lib/wow/wow.min.js" %}"></script>
-        <script src="{% static "lib/easing/easing.min.js" %}"></script>
-        <script src="{% static "lib/waypoints/waypoints.min.js" %}"></script>
-        <script src="{% static "lib/owlcarousel/owl.carousel.min.js" %}"></script>
-        
-
-        <!-- Template Javascript -->
-        <script src="{% static "js/main.js" %}"></script>
-    </body>
-
+    <h2>8. Contact Us</h2>
+    <p>If you have any questions or concerns about this privacy policy or the handling of your information, please contact:</p>
+    <p><b>NanoServ Support Team</b></p>
+    <p><strong>Email:</strong> support@nanoserv.com</p>
+    <p><strong>Phone:</strong> +91-98765-43210</p>
+    <p>By using NanoServ and signing in via Google, you agree to the terms of this Privacy Policy.</p>
+  </div>
+</body>
 </html>
