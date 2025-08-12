@@ -38,6 +38,18 @@ class SmartTv(models.Model):
 auditlog.register(SmartTv)
 
 
+class Electric_Station(models.Model):
+    service_img = models.ImageField()
+    service_name = models.CharField(max_length=50)
+    service_price = models.CharField(max_length=5)
+    service_desc = models.TextField()
+
+    def __str__(self) -> str:
+        return self.service_name
+
+auditlog.register(Electric_Station)
+
+
 class Electrical_service_booking(models.Model):
     booking_name = models.CharField(max_length=50, null=False)
     booking_email = models.EmailField(blank=False, null=False)

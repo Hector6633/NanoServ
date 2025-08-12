@@ -9,5 +9,7 @@ urlpatterns = [
     path('plumbing_service_booking/', views.plumbing_service_booking, name='plumbing_service_booking'),
     path('tv_service_booking/<int:pk>', views.tv_service_booking, name='tv_service_booking'),
     path('SmartTv_service_booking/', views.SmartTv_service_booking, name='SmartTv_service_booking'),
+    path('Book_electric_station/<int:pk>', views.Book_electric_station, name='Book_electric_station'),
+    path('Booking_electric_station/', views.Booking_electric_station, name='Booking_electric_station'),
     path('success_booking/', views.success_booking, name='success_booking'),
 ]

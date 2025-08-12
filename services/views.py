@@ -11,6 +11,7 @@ def service(request):
         "plum_data": Plumbers.objects.all(),
         "elec_data": Electricians.objects.all(),
         "tv_data": SmartTv.objects.all(),
+        "electric_station_data": Electric_Station.objects.all(),
     }
     return render(request, "service.html", service_data)
 
@@ -161,3 +162,51 @@ def SmartTv_service_booking(request):
             error_mg = "oops!!"
             messages.error(request, error_mg)
             return redirect("success_booking")
+        
+        
+def Book_electric_station(request, pk):
+    electric_station_data = {
+        "electric_station_data": Electric_Station.objects.get(pk=pk),
+    }
+    return render(request, 'book_electric_station.html', electric_station_data)
+
+
+def Booking_electric_station(request):
+    if request.method == "POST":
+        try:
+            booking_name = request.POST.get("name")
+            booking_email = request.POST.get("email")
+            booking_phone = request.POST.get("phone")
+            booking_location = request.POST.get("location")
+            booking_service = request.POST.get("service")
+            booking_price = request.POST.get("price")
+            booking_address = request.POST.get("address")
+            booking_data = smartTv_service_booking.objects.create(
+                booking_name=booking_name,
+                booking_email=booking_email,
+                booking_phone=booking_phone,
+                booking_location=booking_location,
+                booking_service=booking_service,
+                booking_price=booking_price,
+                booking_address=booking_address,
+            )
+            booking_data.save()
+            subject = "NanoServ Charging Station Booking"
+            message = f"Dear {booking_name},\nYou are successfully booked your Charging slot with NanoServ. Our service advisor will hold your slot and get in touch with you.\nHere are your service details:\n\tName: {booking_name}\n\tEmail:{booking_email}\n\tPhone Number: {booking_phone}\n\tAddress: {booking_address}\n\tLocation: {booking_location}\n\tService Name :{booking_service}\nPlease keep this email for your records and do not forward or share any other person.\nTo get started, please visit our website at https://127.0.0.1:8000/ and use our services.\nFor more details login with NanoServ."
+            recipient = booking_email
+            send_mail(
+                subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                [recipient],
+                fail_silently=False,
+            )
+            success_msg = "Successfully Booked"
+            messages.success(request, success_msg)
+            return redirect("success_booking")
+        except Exception as e:
+            error_mg = "oops!!"
+            messages.error(request, error_mg)
+            return redirect("success_booking")
+
+

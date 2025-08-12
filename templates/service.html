@@ -169,9 +169,14 @@
                                     <span>Plumbing</span>
                                 </a>
                             </li>
-                            <li class="nav-item me-lg-0 mb-4 mb-lg-0">
+                            <li class="nav-item me-lg-0 mb-4">
                                 <a class="py-3 px-5" data-bs-toggle="pill" href="#ServiceTab-3">
                                 <span>Smart TV</span>
+                                </a>
+                            </li>
+                            <li class="nav-item me-lg-0 mb-4 mb-lg-0">
+                                <a class="py-3 px-5" data-bs-toggle="pill" href="#ServiceTab-4">
+                                <span>Electric Station</span>
                                 </a>
                             </li>
                         </ul>
@@ -221,6 +226,22 @@
                                             <p class="mb-4">{{t_data.service_desc}}
                                             </p>
                                             <a class="btn btn-primary py-2 px-4" href="{% url "tv_service_booking" t_data.id %}">Book Service</a>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div id="ServiceTab-4" class="tab-pane fade show p-0">
+                                <div class="service-carousel owl-carousel">
+                                    {% for c_data in electric_station_data %}
+                                    <div class="service-item">
+                                        <img src="{{c_data.service_img.url}}" class="img-fluid w-100" alt="">
+                                        <div class="border border-top-0 p-4">
+                                            <h4 class="mb-3">{{c_data.service_name}}</h4>
+                                            <h3 class="mb-3">₹ {{c_data.service_price}}</h3>
+                                            <p class="mb-4">{{c_data.service_desc}}
+                                            </p>
+                                            <a class="btn btn-primary py-2 px-4" href="{% url "Book_electric_station" c_data.id  %}">Book Service</a>
                                         </div>
                                     </div>
                                     {% endfor %}

@@ -104,9 +104,8 @@
                                 <div class="navbar-nav mx-0 mx-lg-auto bg-white">
                                     <a href="{% url "index" %}" class="nav-item nav-link">Home</a>
                                     <a href="{% url "about_us" %}" class="nav-item nav-link">About</a>
-                                    <a href="{% url "service" %}" class="nav-item nav-link">Service</a>
+                                    <a href="{% url "service" %}" class="nav-item nav-link active">Service</a>
                                     <a href="{% url "blog" %}" class="nav-item nav-link">Blog</a>
-                                    <a href="{% url "privacy_policy" %}" class="nav-item nav-link">PrivacyPolicy</a>
                                     <div class="nav-item dropdown">
                                         <a href="#" class="nav-link" data-bs-toggle="dropdown">
                                             <span class="dropdown-toggle">Account</span>
@@ -119,7 +118,7 @@
                                             {% endif %}
                                         </div>
                                     </div>
-                                    <a href="{% url "contact" %}" class="nav-item nav-link active">Contact</a>
+                                    <a href="{% url "contact" %}" class="nav-item nav-link">Contact</a>
                                     <div class="nav-btn ps-3">
                                         {% if user.is_authenticated %}
                                         <a href="#" class="btn btn-primary py-2 px-4 ms-0 ms-lg-3"> Hello, {{user.username}}</a>
@@ -137,10 +136,11 @@
         <!-- Navbar & Hero End -->
 
 
+
         <!-- Header Start -->
         <div class="container-fluid bg-breadcrumb">
             <div class="container text-center py-5" style="max-width: 900px;">
-                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Contact Us</h4>
+                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Charging Station Booking For Electrical Vehicles</h4>
             </div>
         </div>
         <!-- Header End -->
@@ -150,25 +150,78 @@
         <div class="container-fluid contact bg-light py-5">
             <div class="container py-5">
                 <div class="row g-5">
+                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
+                            <p class="mb-4">This form is currently active to customers for booking charging slot.</p>
+                                <form method="post" action="{% url "Booking_electric_station" %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row g-4">
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" required readonly value="{{user.username}}" name="name" class="form-control border-0" id="name" placeholder="Your Name">
+                                            <label for="name">Your Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="email" required readonly value="{{user.email}}" name="email" class="form-control border-0" id="email" placeholder="Your Email">
+                                            <label for="email">Your Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" required name="phone" maxlength="10" class="form-control border-0" id="phone" placeholder="Phone">
+                                            <label for="phone">Your Phone</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" required name="location" class="form-control border-0" id="project" placeholder="Service">
+                                            <label for="project">Your Location</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" required readonly value="{{electric_station_data.service_name}}" name="service" class="form-control border-0" id="project" placeholder="Service">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" required readonly value="{{electric_station_data.service_price}}" name="price" class="form-control border-0" id="project" placeholder="Service">
+                                            <label for="project">₹ </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control border-0" required name="address" placeholder="Leave a message here" id="message" style="height: 125px"></textarea>
+                                            <label for="message">Your Address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" required type="checkbox" value="" id="flexCheck">
+                                            <label class="form-check-label" for="flexCheck">I agree with the site privacy policy</label>
+                                          </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3">Book Service</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
                         <div>
-                            <h4 class="text-primary">Contact Us</h4>
-                            <h1 class="display-4 mb-4">Illuminate Your Message Get in Contact</h1>
-                            <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia hic aspernatur unde magnam necessitatibus provident iusto maxime nobis esse eligendi.
+                            <h4 class="text-primary">Book Charging Slot</h4>
+                            <h1 class="display-4 mb-4">Book Our Charging Service And Get in Touch with us</h1>
+                            <p class="mb-5"> To verify service and customer personal details for booking confirmation.
                             </p>
-                            <div class="d-flex align-items-center mb-4">
-                                <a class="btn btn-primary btn-md-square me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-primary btn-md-square me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-primary btn-md-square me-3" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-primary btn-md-square me-0" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
                             <div class="row g-4">
                                 <div class="col-12">
                                     <div class="d-inline-flex bg-white w-100 p-4">
-                                        <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
                                         <div>
-                                            <h4>Address</h4>
-                                            <p class="mb-0">North Sky View tower New York, USA</p>
+                                            <h4>Service Name</h4>
+                                            <p class="mb-0">{{electric_station_data.service_name}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -176,8 +229,8 @@
                                     <div class="d-inline-flex bg-white w-100 p-4">
                                         <i class="fas fa-envelope fa-2x text-primary me-4"></i>
                                         <div>
-                                            <h4>Mail Us</h4>
-                                            <p class="mb-0">nanoservinfo@gmail.com</p>
+                                            <h4>Customer Mail</h4>
+                                            <p class="mb-0">{{user.email}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -185,79 +238,12 @@
                                     <div class="d-inline-flex bg-white w-100 p-4">
                                         <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
                                         <div>
-                                            <h4>Telephone</h4>
+                                            <h4>Enquiry Number</h4>
                                             <p class="mb-0">(+012) 3456 7890 123</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
-                        <div>
-                            <p class="mb-4">The contact form is currently active for customer feedback and compliant registration. <a class="text-primary fw-bold" href="#">Submit Now</a></p>
-                                {% if messages %}
-                                {% for message in messages %}
-                                <div class="alert alert-success" role="alert">
-                                <h1{% if message.tags %} class="{{ message.tags }}" {% endif %}><strong>{{ message }}<strong><h1>
-                                </div>
-                                {% endfor %}
-                                {% endif %}
-                                <form method="post" action="{% url "contact" %}" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                <div class="row g-4">
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="text" required name="name" class="form-control border-0" id="name" placeholder="Your Name">
-                                            <label for="name">Your Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="email" required name="email" class="form-control border-0" id="email" placeholder="Your Email">
-                                            <label for="email">Your Email</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="text" name="phone" maxlength="10" class="form-control border-0" id="phone" placeholder="Phone">
-                                            <label for="phone">Your Phone</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                        <select id="project" name="service" class="form-control border-0" required>
-                                            <option value="">SELECT</option>
-                                            <option name="service" value="Electrical Service">Electrical Service</option>
-                                            <option name="service" value="Plumbing Service">Plumbing Service</option>
-                                            <option name="service" value="Smart TV Service">Smart TV Service</option>
-                                        </select>
-                                        {% comment %} <input type="text" required name="service" maxlength="50" class="form-control border-0" id="project" placeholder="Service">
-                                        <label for="project">Our Service</label> {% endcomment %}
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control border-0" name="msg" placeholder="Leave a message here" id="message" style="height: 125px"></textarea>
-                                            <label for="message">Message</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-check">
-                                            <input class="form-check-input" required type="checkbox" value="" id="flexCheck">
-                                            <label class="form-check-label" required for="flexCheck">I agree with the site privacy policy</label>
-                                          </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-12 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="h-100 overflow-hidden">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125922.85746193808!2d76.25904518057327!3d9.500962821017005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0884f1aa296b61%3A0xb84764552c41f85a!2sAlappuzha%2C%20Kerala!5e0!3m2!1sen!2sin!4v1754585722666!5m2!1sen!2sin" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
