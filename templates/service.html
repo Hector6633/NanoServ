@@ -185,7 +185,7 @@
                         <div class="tab-content">
                             <div id="ServiceTab-1" class="tab-pane fade show p-0 active">
                                 <div class="service-carousel owl-carousel">
-                                    {% for e_data in elec_data %}
+                                    {% for e_data in elestation_data %}
                                     <div class="service-item">
                                         <img src="{{e_data.service_img.url}}" class="img-fluid w-100" alt="">
                                         <div class="border border-top-0 p-4">
@@ -233,15 +233,16 @@
                             </div>
                             <div id="ServiceTab-4" class="tab-pane fade show p-0">
                                 <div class="service-carousel owl-carousel">
-                                    {% for c_data in electric_station_data %}
+                                    {% for station_data in charging_station_data %}
                                     <div class="service-item">
-                                        <img src="{{c_data.service_img.url}}" class="img-fluid w-100" alt="">
+                                        <img src="{{station_data.Station_img.url}}" class="img-fluid w-100" alt="">
                                         <div class="border border-top-0 p-4">
-                                            <h4 class="mb-3">{{c_data.service_name}}</h4>
-                                            <h3 class="mb-3">₹ {{c_data.service_price}}</h3>
-                                            <p class="mb-4">{{c_data.service_desc}}
+                                            <h4 class="mb-3">{{station_data.Station_name}}</h4>
+                                            <h3 class="mb-3">₹ {{station_data.Station_price}}/KWH</h3>
+                                            <a class="mb-3" href="{{station_data.Station_location}}">Get Location</a>
+                                            <p class="mb-4">{{station_data.Station_address}}
                                             </p>
-                                            <a class="btn btn-primary py-2 px-4" href="{% url "Book_electric_station" c_data.id  %}">Book Service</a>
+                                            <a class="btn btn-primary py-2 px-4" href="{% url "Book_charging_station" station_data.id  %}">Book Station</a>
                                         </div>
                                     </div>
                                     {% endfor %}

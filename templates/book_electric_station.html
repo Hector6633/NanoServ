@@ -153,7 +153,7 @@
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
                         <div>
                             <p class="mb-4">This form is currently active to customers for booking charging slot.</p>
-                                <form method="post" action="{% url "Booking_electric_station" %}" enctype="multipart/form-data">
+                                <form method="post" action="{% url "Booking_charging_station" %}" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="row g-4">
                                     <div class="col-lg-12 col-xl-6">
@@ -170,31 +170,26 @@
                                     </div>
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
+                                            <input type="text" required readonly value="{{charging_station_data.Station_name}}" name="station" class="form-control border-0" id="project" placeholder="Service">
+                                            <label for="project">Station Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" required readonly value="{{charging_station_data.Station_price}}" name="price" class="form-control border-0" id="project" placeholder="Service">
+                                            <label for="project">Price in Kilo Watt Hour</label>
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" required readonly name="location" value="{{charging_station_data.Station_location}}" class="form-control border-0" id="project" placeholder="Service">
+                                            <label for="project">Station Location</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
                                             <input type="text" required name="phone" maxlength="10" class="form-control border-0" id="phone" placeholder="Phone">
                                             <label for="phone">Your Phone</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="text" required name="location" class="form-control border-0" id="project" placeholder="Service">
-                                            <label for="project">Your Location</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="text" required readonly value="{{electric_station_data.service_name}}" name="service" class="form-control border-0" id="project" placeholder="Service">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="text" required readonly value="{{electric_station_data.service_price}}" name="price" class="form-control border-0" id="project" placeholder="Service">
-                                            <label for="project">₹ </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control border-0" required name="address" placeholder="Leave a message here" id="message" style="height: 125px"></textarea>
-                                            <label for="message">Your Address</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -204,7 +199,7 @@
                                           </div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3">Book Service</button>
+                                        <button class="btn btn-primary w-100 py-3">Book Slot</button>
                                     </div>
                                 </div>
                             </form>
@@ -221,7 +216,7 @@
                                     <div class="d-inline-flex bg-white w-100 p-4">
                                         <div>
                                             <h4>Service Name</h4>
-                                            <p class="mb-0">{{electric_station_data.service_name}}</p>
+                                            <p class="mb-0">Booking Charging Slot</p>
                                         </div>
                                     </div>
                                 </div>
