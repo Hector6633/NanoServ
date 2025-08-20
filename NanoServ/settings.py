@@ -48,13 +48,14 @@ INSTALLED_APPS = [
     "axes",
     "schema_viewer",
     "livereload",
-    "easyaudit",
+    # "easyaudit",
     'auditlog',
     "debug_toolbar",
     "account_manager",
     "themes",
     "services",
     "crm",
+    # SSO Related Packages
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
@@ -74,7 +75,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "livereload.middleware.LiveReloadScript",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    "easyaudit.middleware.easyaudit.EasyAuditMiddleware",
+    # "easyaudit.middleware.easyaudit.EasyAuditMiddleware",
     "axes.middleware.AxesMiddleware",
     "django_auto_logout.middleware.auto_logout",
     "allauth.account.middleware.AccountMiddleware",
@@ -148,7 +149,7 @@ AXES_RESET_ON_SUCCESS = True
 
 AXES_ENABLE_ADMIN = True
 
-AXES_ENABLED = False
+AXES_ENABLED = True
 
 
 # Internationalization

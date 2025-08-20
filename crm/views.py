@@ -13,9 +13,11 @@ def index(request):
     electric_service_booking = Electrical_service_booking.objects.all()
     plumbing_service_booking = Plumbing_service_booking.objects.all()
     smart_tv_service_booking = smartTv_service_booking.objects.all()
+    charging_slot_booking = Charging_station_booking.objects.all()
     total_electric_service_booking = electric_service_booking.count()
     total_plumbing_service_booking = plumbing_service_booking.count()
     total_smart_tv_service_booking = smart_tv_service_booking.count()
+    total_charging_slot_booking = charging_slot_booking.count()
     # Total number of customers
     admin = 2
     customers = User.objects.all()
@@ -29,12 +31,14 @@ def index(request):
         "total_elec_booking": total_electric_service_booking,
         "total_plum_booking": total_plumbing_service_booking,
         "total_tv_booking": total_smart_tv_service_booking,
+        "total_charging_slot": total_charging_slot_booking,
         "total_customers": total_customers,
         "total_feedbacks": total_feedback,
         "feedbacks": feedback,
         "elec_data": Electricians.objects.all(),
         "plum_data": Plumbers.objects.all(),
         "tv_data": SmartTv.objects.all(),
+        "station_data": Add_Charging_Station.objects.all(),
     }
     return render(request, "crm_templates/index.html", total_data)
 
@@ -63,6 +67,14 @@ def smart_tv_dashboard(request):
         "smart_tv_data": smartTv_service_booking.objects.all(),
     }
     return render(request, "crm_templates/smart_tv_dashboard.html", tv_service)
+
+
+@allowed_users(allowed_roles=["admin"])
+def charging_station_dashboard(request):
+    station_slots = {
+        "station_data": Charging_station_booking.objects.all(),
+    }
+    return render(request, "crm_templates/charging_station_dashboard.html", station_slots)
 
 
 @allowed_users(allowed_roles=["admin"])
