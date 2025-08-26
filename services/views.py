@@ -4,8 +4,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.conf import settings
+from django.views.decorators.cache import cache_page
 
-
+@cache_page(300)
 def service(request):
     service_data = {
         "plum_data": Plumbers.objects.all(),

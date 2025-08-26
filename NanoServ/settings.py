@@ -62,7 +62,10 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.google",
     "crispy_forms",
     "crispy_bootstrap4",
+    "django_smart_ratelimit",
 ]
+
+RATELIMIT_BACKEND = 'database'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -80,7 +83,17 @@ MIDDLEWARE = [
     "django_auto_logout.middleware.auto_logout",
     "allauth.account.middleware.AccountMiddleware",
     'auditlog.middleware.AuditlogMiddleware',
+    'django_smart_ratelimit.middleware.RateLimitMiddleware',
 ]
+
+RATELIMIT_MIDDLEWARE = {
+    'DEFAULT_RATE': '1000/h',
+    'RATE_LIMITS': {
+        '/core-admin': '10/m',
+        '/sign_in': '500/h',
+        '/sign_up': '500/h',
+    }
+}
 
 ROOT_URLCONF = "NanoServ.urls"
 
@@ -229,6 +242,14 @@ EMAIL_PORT = env("EMAIL_PORT")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 SERVER_EMAIL = env("SERVER_EMAIL")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+
+# Cache memory implementation
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+    }
+}
 
 # For production settings
 # HTTPS SETTINGS

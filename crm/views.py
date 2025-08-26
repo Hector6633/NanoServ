@@ -5,8 +5,9 @@ from django.contrib.auth.models import User
 from themes.models import Contact
 from django.db.models import Q
 from django.contrib import messages
+from django.views.decorators.cache import cache_page
 
-
+@cache_page(300)
 @allowed_users(allowed_roles=["admin"])
 def index(request):
     # Total number of service booking
@@ -84,7 +85,7 @@ def customer_feedback(request):
     }
     return render(request, "crm_templates/customer_feedback.html", customer_feedback)
 
-
+@cache_page(300)
 @allowed_users(allowed_roles=["admin"])
 def customer_searching(request):
     if request.method == "POST":

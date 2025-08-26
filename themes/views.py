@@ -3,9 +3,10 @@ from .models import Contact
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
-
+from django.views.decorators.cache import cache_page
 
 # Create your views here.
+@cache_page(300)
 def index(request):
     return render(request, "index.html")
 
