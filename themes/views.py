@@ -6,7 +6,6 @@ from django.conf import settings
 from django.views.decorators.cache import cache_page
 
 # Create your views here.
-@cache_page(300)
 def index(request):
     return render(request, "index.html")
 
@@ -18,6 +17,7 @@ def about_us(request):
 def blog(request):
     return render(request, "blog.html")
 
+@cache_page(300)
 def privacy_policy(request):
     return render(request, "privacy-policy.html")
 
