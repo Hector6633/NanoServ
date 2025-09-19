@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     "axes",
     "schema_viewer",
     "livereload",
-    # "easyaudit",
+    "easyaudit",
     'auditlog',
     "debug_toolbar",
     "account_manager",
@@ -78,7 +78,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "livereload.middleware.LiveReloadScript",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    # "easyaudit.middleware.easyaudit.EasyAuditMiddleware",
+    "easyaudit.middleware.easyaudit.EasyAuditMiddleware",
     "axes.middleware.AxesMiddleware",
     "django_auto_logout.middleware.auto_logout",
     "allauth.account.middleware.AccountMiddleware",
@@ -94,6 +94,13 @@ RATELIMIT_MIDDLEWARE = {
         '/sign_up': '500/h',
     }
 }
+
+# For Django easy-audit package
+DJANGO_EASY_AUDIT_WATCH_MODEL_EVENTS = False
+
+DJANGO_EASY_AUDIT_WATCH_AUTH_EVENTS = False
+
+DJANGO_EASY_AUDIT_WATCH_REQUEST_EVENTS = False
 
 ROOT_URLCONF = "NanoServ.urls"
 
@@ -242,6 +249,8 @@ EMAIL_PORT = env("EMAIL_PORT")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 SERVER_EMAIL = env("SERVER_EMAIL")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+# only for local development
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  
 
 # Cache memory implementation
 CACHES = {
