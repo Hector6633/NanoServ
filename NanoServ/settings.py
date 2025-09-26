@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap4",
     "django_smart_ratelimit",
+    "django_browser_reload",
 ]
 
 RATELIMIT_BACKEND = 'database'
@@ -84,6 +85,7 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
     'auditlog.middleware.AuditlogMiddleware',
     'django_smart_ratelimit.middleware.RateLimitMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 RATELIMIT_MIDDLEWARE = {
@@ -165,11 +167,11 @@ AXES_FAILURE_LIMIT: 8
 
 AXES_COOLOFF_TIME: 1  # It represents in hours
 
-AXES_RESET_ON_SUCCESS = True
+AXES_RESET_ON_SUCCESS = False
 
-AXES_ENABLE_ADMIN = True
+AXES_ENABLE_ADMIN = False
 
-AXES_ENABLED = True
+AXES_ENABLED = False
 
 
 # Internationalization

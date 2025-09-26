@@ -10,7 +10,7 @@ from django.views.decorators.cache import cache_page
 def service(request):
     service_data = {
         "plum_data": Plumbers.objects.all(),
-        "elec_data": Electricians.objects.all(),
+        "electrical_data": Electricians.objects.all(),
         "tv_data": SmartTv.objects.all(),
         "charging_station_data": Add_Charging_Station.objects.all(),
     }

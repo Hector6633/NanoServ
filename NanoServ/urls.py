@@ -29,6 +29,7 @@ urlpatterns = [
     path("", include("themes.urls")),
     path("services/", include("services.urls")),
     path("crm/", include("crm.urls")),
+    path("__reload__/", include("django_browser_reload.urls")),
 ] + debug_toolbar_urls()
 
 # for development purpose
