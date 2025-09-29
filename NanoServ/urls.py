@@ -20,6 +20,7 @@ from django.urls import path, include
 from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path("core-admin/", admin.site.urls),
@@ -30,6 +31,7 @@ urlpatterns = [
     path("services/", include("services.urls")),
     path("crm/", include("crm.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
+    path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
 ] + debug_toolbar_urls()
 
 # for development purpose
